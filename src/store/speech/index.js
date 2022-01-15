@@ -6,7 +6,7 @@ export default {
       volume: 1, // 0.1 sampai 1
       rate: 0.7, // 0.1 sampai 10
       pitch: 1, // 0 sampai 2
-      voice: 'id-ID',
+      voice: 'en-US',
       text: ''
     },
     listVoiceLang: []
