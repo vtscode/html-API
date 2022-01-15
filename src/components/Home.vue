@@ -1,46 +1,62 @@
 <template>
   <div>
-    <a-select
-      style="width: 120px"
-      v-model="optSpeech.voice"
-      @change="handleChangeVoiceLanguage"
-    >
-      <a-select-option
-        v-for="(optVoice, idx) in listVoices"
-        :value="optVoice.name"
-        :key="idx"
-      >
-        {{ optVoice.name }}
-      </a-select-option>
-    </a-select>
-    <a-input-number
-      name="volume"
-      :min="0.1"
-      :max="1"
-      :step="0.1"
-      v-model="optSpeech.volume"
-      placeholder="Volume"
-    />
-    <a-input-number
-      name="pitch"
-      :min="0"
-      :max="2"
-      :step="1"
-      v-model="optSpeech.pitch"
-      placeholder="Pitch"
-    />
-    <a-input-number
-      name="rate"
-      :min="0.1"
-      :max="10"
-      :step="0.1"
-      v-model="optSpeech.rate"
-      placeholder="Rate"
-    />
+    <a-row type="flex" justify="center">
+      <a-col :span="3">
+        <p>Choose Type Voice</p>
+        <a-select
+          style="width: 120px"
+          v-model="optSpeech.voice"
+          @change="handleChangeVoiceLanguage"
+        >
+          <a-select-option
+            v-for="(optVoice, idx) in listVoices"
+            :value="optVoice.name"
+            :key="idx"
+          >
+            {{ optVoice.name }}
+          </a-select-option>
+        </a-select>
+      </a-col>
+      <a-col :span="3">
+        <p>Set Volume</p>
+        <a-input-number
+          name="volume"
+          :min="0.1"
+          :max="1"
+          :step="0.1"
+          v-model="optSpeech.volume"
+          placeholder="Volume"
+        />
+      </a-col>
+      <a-col :span="3">
+        <p>Set Pitch</p>
+        <a-input-number
+          name="pitch"
+          :min="0"
+          :max="2"
+          :step="1"
+          v-model="optSpeech.pitch"
+          placeholder="Pitch"
+        />
+      </a-col>
+      <a-col :span="3">
+        <p>Set Rate</p>
+        <a-input-number
+          name="rate"
+          :min="0.1"
+          :max="10"
+          :step="0.1"
+          v-model="optSpeech.rate"
+          placeholder="Rate"
+        />
+      </a-col>
+    </a-row>
     
+    <br/>
+    <br/>
     <h1>{{ location }}</h1>
     
-    <a-button @click="sayit">SAY</a-button>
+    <a-button :size="'large'" @click="sayit">SPEAK TO ME</a-button>
   </div>
 </template>
 
